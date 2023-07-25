@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const validator = require("validator");
+require("dotenv").config();
 
 const mongoose = require("mongoose");
 
@@ -11,7 +12,10 @@ app.use(bodyParser.json());
 const port = process.env.PORT || 5000;
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/studentdb")
+  // .connect("mongodb://127.0.0.1:27017/studentdb")
+  .connect(process.env.DB, {
+    dbName: "studentdb",
+  })
   .then((res) => console.log("mongo Connected" + res))
   .catch((err) => console.log("Error: " + err));
 
