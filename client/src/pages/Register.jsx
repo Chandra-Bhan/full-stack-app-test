@@ -21,7 +21,7 @@ function Register() {
       password,
     };
     const res = await axios.post(
-      "http://localhost:5000/register",
+      "https://mern-stack-crun-op.onrender.com/register",
       submittingData
     );
     const error = res.data.errors;

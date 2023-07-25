@@ -10,14 +10,18 @@ function StudentDetails() {
   const [dataChange, setDataChange] = useState(true);
   const [updationId, setUpdationId] = useState("");
   const getData = async () => {
-    const res = await axios.get("http://localhost:5000/register");
+    const res = await axios.get(
+      "https://mern-stack-crun-op.onrender.com/register"
+    );
     console.log(res.data);
     // setDataChange(!dataChange);
     setData(res.data);
   };
 
   const handleDeletion = async (id) => {
-    const res = await axios.delete(`http://localhost:5000/register?id=${id}`);
+    const res = await axios.delete(
+      `https://mern-stack-crun-op.onrender.com/register?id=${id}`
+    );
     alert(res.data);
     getData();
   };
@@ -30,7 +34,7 @@ function StudentDetails() {
       email,
     };
     const res = await axios.patch(
-      `http://localhost:5000/register`,
+      `https://mern-stack-crun-op.onrender.com/register`,
       updationData
     );
     alert("Updation is completed", res);
